@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<form th:action="@{/studentAPI/submitFinalStudent}" method="post" style="padding-left:30%">
+	<h2 style="color:red">Data Successfully submitted for : </h2>
+	   <table>
+			<tr>
+				<td><label>First Name</label></td>
+				<td><input type="text" th:field="${student.firstName}"></td>
+			</tr>
+			<tr>
+				<td><label>Last Name</label></td>
+				<td><input type="text" th:field="${student.lastName}"></td>
+			</tr>
+			<tr>
+				<td><label>Country</label></td>
+				<td>
+					<select th:field="${student.country}"> 
+						<option th:each="val : ${countryoptions}" th:value="${val}" th:text="${val}" selected>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td><label>Gender</label></td>
+				<td>
+				<!-- 
+					<input type="radio" th:field="${student.gender}" th:text="Male" value="male">
+					<input type="radio" th:field="${student.gender}" th:text="Female" value="female">
+				 -->
+				<input type="text" th:field="${student.gender}" th:value="${student.gender}" >
+				</td>
+			</tr>
+			<tr>
+			<tr>
+				<td><input type="submit" value="Confirm"></td>
+			</tr>
+		</table>
+	</form>
+
+</body>
+</html>

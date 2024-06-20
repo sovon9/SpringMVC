@@ -49,4 +49,12 @@ public class StudentController {
 		return Arrays.asList("India","Japan","USA");
 	}
 	
+	@GetMapping(value="/form/i")
+	public String showInternationalForm(Model model)
+	{
+		model.addAttribute("student", new Student());
+		model.addAttribute("genderlist", genders);
+		return "InternationalStudentform";
+	}
+	
 }
